@@ -31,26 +31,26 @@ export function Masthead() {
         >
           <span>{copy.series.mark}</span>
           <span className="text-paper-300">·</span>
-          <span className="text-brass-600">{copy.series.volume}</span>
+          <span className="text-tamarind-600">{copy.series.volume}</span>
         </a>
         <nav className="hidden items-center gap-8 md:flex">
-          <a href="#atlas" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-brass-600">
+          <a href="#atlas" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-tamarind-600">
             The nineteen
           </a>
-          <a href="#passages" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-brass-600">
+          <a href="#passages" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-tamarind-600">
             Passages
           </a>
-          <a href="#author" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-brass-600">
+          <a href="#author" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-tamarind-600">
             Author
           </a>
-          <a href="#faq" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-brass-600">
+          <a href="#faq" className="font-sans text-[13px] tracking-wide text-ink-800 hover:text-tamarind-600">
             FAQ
           </a>
         </nav>
         <a
           href={buildCheckoutUrl()}
           onClick={() => trackEvent("buy_click", { location: "masthead" })}
-          className="group inline-flex items-center gap-2 border border-ink-900 bg-ink-900 px-4 py-2 font-sans text-[12px] uppercase tracking-[0.18em] text-paper-50 transition hover:bg-brass-600 hover:border-brass-600"
+          className="group inline-flex items-center gap-2 bg-tamarind-500 px-4 py-2 font-sans text-[12px] uppercase tracking-[0.18em] text-paper-50 transition hover:bg-tamarind-600"
         >
           <span>Buy · $14</span>
         </a>

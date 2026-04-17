@@ -15,7 +15,7 @@ export function ThaiTermLabel({ roman, thai, translation, className }: Props) {
         className,
       )}
     >
-      <span className="text-brass-600 font-semibold">{roman}</span>
+      <span className="text-tamarind-600 font-semibold">{roman}</span>
       <span className="text-paper-300">·</span>
       <span className="font-thai text-[13px] text-ink-900" style={{ fontFamily: "var(--font-thai)" }}>
         {thai}

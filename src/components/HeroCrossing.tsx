@@ -11,48 +11,94 @@ export function HeroCrossing() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-ink-950 text-paper-50"
+      className="relative isolate flex min-h-[100svh] flex-col justify-between overflow-hidden text-ink-950"
     >
-      {/* Background: typographic-only fallback gradient while AI hero is generated. */}
+      {/* Warm sunset background: saffron/blush/tamarind over cream */}
       <div className="absolute inset-0 -z-10">
         <motion.div
-          initial={{ scale: 1.08 }}
-          animate={reduce ? { scale: 1.08 } : { scale: 1.18 }}
-          transition={{ duration: 24, ease: "linear", repeat: Infinity, repeatType: "mirror" }}
+          initial={{ scale: 1.04 }}
+          animate={reduce ? { scale: 1.04 } : { scale: 1.1 }}
+          transition={{ duration: 28, ease: "linear", repeat: Infinity, repeatType: "mirror" }}
           className="absolute inset-0"
           style={{
-            backgroundImage:
-              "radial-gradient(1200px 600px at 70% 30%, rgba(184,134,75,0.42), transparent 60%), radial-gradient(900px 700px at 20% 80%, rgba(44,74,75,0.55), transparent 65%), linear-gradient(180deg, #0c0a08 0%, #1e3536 45%, #2c4a4b 75%, #8f6533 105%)",
+            background: `
+              radial-gradient(1200px 700px at 78% 18%, rgba(245,198,90,0.55), transparent 60%),
+              radial-gradient(900px 600px at 18% 85%, rgba(240,184,165,0.55), transparent 65%),
+              radial-gradient(1000px 500px at 50% 50%, rgba(224,122,58,0.18), transparent 70%),
+              linear-gradient(180deg, #faf3e4 0%, #f2e7ce 40%, #f0b8a5 90%, #de9480 100%)
+            `,
           }}
         />
-        {/* River silhouette */}
+        {/* River silhouette at the base */}
         <svg
           aria-hidden
           viewBox="0 0 1600 900"
-          className="absolute inset-0 h-full w-full opacity-[0.18]"
-          preserveAspectRatio="xMidYMid slice"
+          className="absolute inset-x-0 bottom-0 h-[55%] w-full"
+          preserveAspectRatio="xMidYMax slice"
         >
+          <defs>
+            <linearGradient id="river-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#3f6e6f" stopOpacity="0.92" />
+              <stop offset="100%" stopColor="#1f3536" stopOpacity="1" />
+            </linearGradient>
+            <linearGradient id="reflection" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#f5c65a" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#f5c65a" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          {/* Water */}
           <path
-            d="M0 720 Q 200 660 420 690 T 820 660 T 1240 700 T 1600 650 L 1600 900 L 0 900 Z"
-            fill="#0c0a08"
+            d="M0 680 Q 200 640 420 660 T 820 630 T 1240 670 T 1600 620 L 1600 900 L 0 900 Z"
+            fill="url(#river-gradient)"
           />
-          <path
-            d="M640 240 L 660 160 L 672 180 L 688 130 L 700 170 L 720 260 Z"
-            fill="#b8864b"
-            opacity="0.65"
-          />
-          <circle cx="686" cy="140" r="3" fill="#d2a168" />
+          {/* Water shimmer */}
+          <g opacity="0.5">
+            {Array.from({ length: 18 }).map((_, i) => (
+              <rect
+                key={i}
+                x={80 + i * 85}
+                y={720 + (i % 3) * 12}
+                width={30 + (i % 5) * 10}
+                height="1.5"
+                fill="#f5c65a"
+                opacity={0.4 + (i % 4) * 0.15}
+              />
+            ))}
+          </g>
+          {/* Wat Arun prang silhouette */}
+          <g transform="translate(1080, 420)">
+            <path
+              d="M 0 260 L 20 100 L 26 115 L 32 60 L 38 115 L 42 30 L 48 115 L 54 85 L 60 260 Z"
+              fill="#2a201a"
+              opacity="0.95"
+            />
+            <circle cx="42" cy="22" r="3" fill="#b8823a" />
+            {/* Reflection */}
+            <path
+              d="M 0 260 L 20 420 L 26 405 L 32 460 L 38 405 L 42 490 L 48 405 L 54 435 L 60 260 Z"
+              fill="url(#reflection)"
+              opacity="0.55"
+            />
+          </g>
+          {/* Two longtail boats */}
+          <g fill="#2a201a" opacity="0.85">
+            <path d="M 280 690 L 360 688 L 370 702 L 270 702 Z" />
+            <line x1="290" y1="688" x2="280" y2="670" stroke="#2a201a" strokeWidth="1.5" />
+            <path d="M 780 665 L 860 663 L 870 678 L 770 678 Z" opacity="0.7" />
+          </g>
         </svg>
-        <GrainOverlay opacity={0.22} />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/40 to-transparent" />
+        <GrainOverlay opacity={0.08} />
       </div>
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-20 pt-28 md:px-10 md:pb-28 md:pt-36">
+      {/* Top bar spacer */}
+      <div className="h-16" />
+
+      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-24 pt-8 md:px-10 md:pb-32 md:pt-12">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="font-mono text-[11px] uppercase tracking-[0.32em] text-brass-400"
+          className="font-mono text-[11px] uppercase tracking-[0.32em] text-brass-700"
         >
           {copy.hero.kicker}
         </motion.p>
@@ -61,12 +107,15 @@ export function HeroCrossing() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display mt-6 max-w-[16ch] text-[14vw] leading-[0.92] tracking-[-0.03em] md:text-[8.5vw] lg:text-[7rem]"
-          style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 40" }}
+          className="font-display mt-6 max-w-[15ch] text-[14vw] leading-[0.9] tracking-[-0.03em] text-ink-950 md:text-[9vw] lg:text-[8rem]"
+          style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 50" }}
         >
           The Shape
           <br />
-          <span className="italic text-brass-400" style={{ fontVariationSettings: "'opsz' 144" }}>
+          <span
+            className="italic text-tamarind-600"
+            style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 80" }}
+          >
             of Bangkok.
           </span>
         </motion.h1>
@@ -75,7 +124,7 @@ export function HeroCrossing() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="font-serif mt-8 max-w-[38ch] text-lg leading-relaxed text-paper-100 md:text-xl"
+          className="font-serif mt-8 max-w-[40ch] text-lg leading-relaxed text-ink-800 md:text-xl"
         >
           {copy.hero.deck}
         </motion.p>
@@ -84,12 +133,12 @@ export function HeroCrossing() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1 }}
-          className="mt-10 border-l border-brass-500 pl-5 max-w-[42ch]"
+          className="mt-10 max-w-[42ch] border-l-2 border-tamarind-500 pl-5"
         >
-          <p className="font-display italic text-xl leading-snug text-paper-50 md:text-2xl">
+          <p className="font-display italic text-xl leading-snug text-ink-900 md:text-2xl">
             “{copy.hero.grabber}”
           </p>
-          <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-brass-400">
+          <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-brass-700">
             From Chapter 1 · Thonburi
           </footer>
         </motion.blockquote>
@@ -103,7 +152,7 @@ export function HeroCrossing() {
           <a
             href={buildCheckoutUrl()}
             onClick={() => trackEvent("buy_click", { location: "hero" })}
-            className="group inline-flex items-center justify-center gap-3 bg-brass-500 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-ink-950 transition hover:bg-brass-400"
+            className="group inline-flex items-center justify-center gap-3 bg-ink-950 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-paper-50 shadow-[0_6px_28px_-8px_rgba(28,20,14,0.45)] transition hover:bg-tamarind-600"
           >
             {copy.hero.primaryCta}
             <span aria-hidden className="translate-y-[1px] transition group-hover:translate-x-1">→</span>
@@ -111,17 +160,17 @@ export function HeroCrossing() {
           <a
             href="#sample"
             onClick={() => trackEvent("chapter_one_request", { location: "hero" })}
-            className="group inline-flex items-center justify-center gap-3 border border-paper-200/50 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-paper-100 transition hover:border-paper-50 hover:text-paper-50"
+            className="group inline-flex items-center justify-center gap-3 border border-ink-900/30 bg-paper-50/60 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-ink-900 backdrop-blur-sm transition hover:border-ink-900 hover:bg-paper-50"
           >
             {copy.hero.secondaryCta}
           </a>
         </motion.div>
 
-        <div className="mt-16 flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.22em] text-paper-200/70">
+        <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-800/80">
           <span>19 chapters</span>
-          <span className="h-px w-8 bg-paper-200/30" />
+          <span className="h-px w-8 bg-ink-900/30" />
           <span>65,200 words</span>
-          <span className="h-px w-8 bg-paper-200/30" />
+          <span className="h-px w-8 bg-ink-900/30" />
           <span>EPUB + Kindle</span>
         </div>
       </div>

@@ -28,7 +28,7 @@ export default function SampleChapterPage() {
     <div className="min-h-screen bg-paper-50 text-ink-900">
       <Masthead />
       <article className="mx-auto max-w-[68ch] px-6 pb-32 pt-40 md:px-0">
-        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-600">
+        <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
           The Shape of Bangkok · Free Sample
         </p>
         <hr className="hairline-brass my-6 w-12" />
@@ -49,7 +49,7 @@ export default function SampleChapterPage() {
             return (
               <h2
                 key={i}
-                className="font-display mt-16 mb-6 text-[1.4rem] italic tracking-[-0.01em] text-brass-600"
+                className="font-display mt-16 mb-6 text-[1.4rem] italic tracking-[-0.01em] text-tamarind-600"
                 style={{ fontVariationSettings: "'opsz' 96" }}
               >
                 {b.text}

@@ -21,7 +21,7 @@ export function SeriesContext() {
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger(0.12)}
         >
-          <motion.p variants={fadeUp} className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-600">
+          <motion.p variants={fadeUp} className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
             {copy.series_context.eyebrow}
           </motion.p>
           <motion.hr variants={fadeUp} className="hairline-brass my-6 w-12" />
@@ -42,14 +42,14 @@ export function SeriesContext() {
                 key={v.roman}
                 className={cn(
                   "group relative flex flex-col justify-between gap-10 bg-paper-50 p-6 transition md:p-8",
-                  v.status === "current" && "bg-ink-950 text-paper-50",
+                  v.status === "current" && "bg-gradient-to-br from-tamarind-600 to-blush-600 text-paper-50",
                   v.status === "ghost" && "text-ink-700/40",
                 )}
               >
                 <div
                   className={cn(
                     "font-display text-[5rem] leading-none tracking-tight",
-                    v.status === "current" ? "text-brass-400" : "text-brass-500/70",
+                    v.status === "current" ? "text-saffron-400" : "text-brass-500/70",
                     v.status === "ghost" && "text-paper-300/60",
                   )}
                   style={{ fontVariationSettings: "'opsz' 144" }}
@@ -70,7 +70,7 @@ export function SeriesContext() {
                   <div
                     className={cn(
                       "mt-2 font-mono text-[10px] uppercase tracking-[0.22em]",
-                      v.status === "current" ? "text-brass-400" : "text-ink-700/70",
+                      v.status === "current" ? "text-saffron-400" : "text-ink-700/70",
                     )}
                   >
                     {v.subtitle}

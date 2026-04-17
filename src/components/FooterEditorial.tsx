@@ -26,14 +26,21 @@ export function FooterEditorial() {
   }
 
   return (
-    <footer className="relative bg-ink-950 text-paper-200">
+    <footer className="on-dark relative overflow-hidden text-paper-200">
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(800px 400px at 15% 10%, rgba(224,122,58,0.18), transparent 65%), linear-gradient(180deg, #2a201a 0%, #1c140e 100%)",
+        }}
+      />
       <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-6">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-400">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-saffron-400">
               {copy.newsletter.title}
             </p>
-            <hr className="my-6 w-12 border-brass-500/60" />
+            <hr className="my-6 w-12 border-saffron-400/70" />
             <h3
               className="font-display max-w-[18ch] text-[2rem] leading-[1.05] tracking-[-0.02em] text-paper-50 md:text-[2.6rem]"
               style={{ fontVariationSettings: "'opsz' 144" }}
@@ -51,18 +58,18 @@ export function FooterEditorial() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={copy.newsletter.placeholder}
                 aria-label="Email address"
-                className="flex-1 border border-paper-200/30 bg-transparent px-4 py-3 font-serif text-[16px] text-paper-50 placeholder:text-paper-300/60 focus:border-brass-400 focus:outline-none"
+                className="flex-1 border border-paper-200/30 bg-transparent px-4 py-3 font-serif text-[16px] text-paper-50 placeholder:text-paper-300/60 focus:border-saffron-400 focus:outline-none"
               />
               <button
                 type="submit"
                 disabled={status === "submitting" || status === "done"}
-                className="bg-brass-500 px-6 py-3 font-sans text-[12px] uppercase tracking-[0.2em] text-ink-950 transition hover:bg-brass-400 disabled:opacity-60"
+                className="bg-tamarind-500 px-6 py-3 font-sans text-[12px] uppercase tracking-[0.2em] text-paper-50 transition hover:bg-tamarind-600 disabled:opacity-60"
               >
                 {status === "submitting" ? "Sending" : status === "done" ? "Sent" : copy.newsletter.cta}
               </button>
             </form>
             {status === "done" && (
-              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-brass-400">
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.22em] text-saffron-400">
                 Check your inbox.
               </p>
             )}

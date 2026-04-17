@@ -17,7 +17,7 @@ export function FAQ() {
           className="grid gap-16 md:grid-cols-12"
         >
           <motion.div variants={fadeUp} className="md:col-span-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-600">Questions</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">Questions</p>
             <hr className="hairline-brass my-6 w-12" />
             <h2
               className="font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
@@ -40,10 +40,10 @@ export function FAQ() {
                       <span className="font-display text-[1.2rem] leading-snug text-ink-900 md:text-[1.4rem]">
                         {item.q}
                       </span>
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-ink-900/30 text-ink-900 transition group-hover:border-brass-500 group-hover:text-brass-600 group-data-[state=open]:hidden">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-ink-900/30 text-ink-900 transition group-hover:border-brass-500 group-hover:text-tamarind-600 group-data-[state=open]:hidden">
                         <Plus size={16} />
                       </span>
-                      <span className="hidden h-8 w-8 shrink-0 items-center justify-center border border-brass-500 text-brass-600 group-data-[state=open]:flex">
+                      <span className="hidden h-8 w-8 shrink-0 items-center justify-center border border-brass-500 text-tamarind-600 group-data-[state=open]:flex">
                         <Minus size={16} />
                       </span>
                     </Accordion.Trigger>

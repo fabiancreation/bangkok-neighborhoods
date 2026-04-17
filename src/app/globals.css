@@ -1,21 +1,48 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink-950: #0c0a08;
-  --color-ink-900: #151210;
-  --color-ink-800: #231f1b;
-  --color-ink-700: #3a332d;
-  --color-paper-50: #f6f1e7;
-  --color-paper-100: #ede4d1;
-  --color-paper-200: #dcceb2;
-  --color-paper-300: #c4b491;
-  --color-brass-400: #d2a168;
-  --color-brass-500: #b8864b;
-  --color-brass-600: #8f6533;
-  --color-brass-700: #6d4c24;
-  --color-river-700: #2c4a4b;
-  --color-river-800: #1e3536;
-  --color-chili-500: #b8412a;
+  /* Warm inks — brown-leaning, not pure black */
+  --color-ink-950: #1c140e;
+  --color-ink-900: #2a201a;
+  --color-ink-800: #3d2f25;
+  --color-ink-700: #5a4a3d;
+
+  /* Paper tones — warm cream, dominant surface */
+  --color-paper-50: #faf3e4;
+  --color-paper-100: #f2e7ce;
+  --color-paper-200: #e5d3af;
+  --color-paper-300: #cbb385;
+
+  /* Brass — core accent, slightly brighter */
+  --color-brass-300: #e6bc7f;
+  --color-brass-400: #d4a055;
+  --color-brass-500: #b8823a;
+  --color-brass-600: #946525;
+  --color-brass-700: #6f4919;
+
+  /* Thai color accents — each mapped to a use, not decoration */
+  --color-tamarind-400: #f09658;  /* terracotta / clay / warm pins */
+  --color-tamarind-500: #e07a3a;
+  --color-tamarind-600: #b55a22;
+
+  --color-jade-400: #7eac95;      /* temple green */
+  --color-jade-500: #5a8a6f;
+  --color-jade-600: #3d6950;
+
+  --color-saffron-400: #f5c65a;   /* monk robes, sun */
+  --color-saffron-500: #e7a82a;
+  --color-saffron-600: #b8821a;
+
+  --color-blush-400: #f0b8a5;     /* lotus, dusk */
+  --color-blush-500: #de9480;
+  --color-blush-600: #b76a57;
+
+  --color-river-400: #5a8a8b;     /* Chao Phraya dusk */
+  --color-river-500: #3f6e6f;
+  --color-river-600: #2c4a4b;
+  --color-river-700: #1f3536;
+
+  --color-chili-500: #c14028;
 
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
@@ -44,6 +71,17 @@ body {
   font-feature-settings: "kern", "liga", "onum";
 }
 
+/* Text on dark sections needs more weight and slightly more size */
+.on-dark {
+  color: var(--color-paper-50);
+}
+.on-dark .font-serif {
+  font-weight: 400;
+}
+.on-dark p {
+  letter-spacing: 0.005em;
+}
+
 ::selection {
   background: var(--color-brass-500);
   color: var(--color-paper-50);
@@ -62,7 +100,7 @@ body {
   line-height: 0.85;
   float: left;
   padding: 0.45rem 0.65rem 0 0;
-  color: var(--color-brass-600);
+  color: var(--color-tamarind-600);
   font-weight: 500;
   font-variation-settings: "opsz" 144;
 }
@@ -89,7 +127,7 @@ body {
 }
 .hairline-brass {
   height: 1px;
-  background: color-mix(in srgb, var(--color-brass-500) 55%, transparent);
+  background: color-mix(in srgb, var(--color-tamarind-500) 70%, transparent);
   border: 0;
 }
 

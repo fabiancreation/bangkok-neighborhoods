@@ -16,7 +16,7 @@ export function BuyCard() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger(0.12)}
-          className="relative grid items-center gap-16 border border-ink-900 bg-paper-100 p-8 md:grid-cols-12 md:p-16"
+          className="relative grid items-center gap-16 border border-tamarind-500/30 bg-gradient-to-br from-paper-100 via-paper-50 to-saffron-400/20 p-8 shadow-[0_40px_80px_-30px_rgba(184,130,58,0.35)] md:grid-cols-12 md:p-16"
         >
           {/* Cover */}
           <motion.div
@@ -28,7 +28,7 @@ export function BuyCard() {
 
           {/* Details */}
           <motion.div variants={fadeUp} className="md:col-span-7">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-600">
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
               {copy.buy.eyebrow}
             </p>
             <hr className="hairline-brass my-6 w-12" />
@@ -40,7 +40,7 @@ export function BuyCard() {
             </h2>
             <div className="mt-8 flex items-baseline gap-4">
               <span
-                className="font-display text-[4.5rem] leading-none tracking-[-0.04em] text-brass-600"
+                className="font-display text-[4.5rem] leading-none tracking-[-0.04em] text-tamarind-600"
                 style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 40" }}
               >
                 {copy.buy.price}
@@ -53,7 +53,7 @@ export function BuyCard() {
             <ul className="mt-10 space-y-4">
               {copy.buy.includes.map((item, i) => (
                 <li key={i} className="flex items-start gap-3 font-serif text-[16px] leading-relaxed text-ink-900">
-                  <Check className="mt-[6px] shrink-0 text-brass-600" size={16} strokeWidth={2.5} />
+                  <Check className="mt-[6px] shrink-0 text-tamarind-600" size={16} strokeWidth={2.5} />
                   <span>{item}</span>
                 </li>
               ))}
@@ -63,14 +63,14 @@ export function BuyCard() {
               <a
                 href={buildCheckoutUrl()}
                 onClick={() => trackEvent("buy_click", { location: "buy_card" })}
-                className="group inline-flex items-center justify-center gap-3 bg-ink-950 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-paper-50 transition hover:bg-brass-600"
+                className="group inline-flex items-center justify-center gap-3 bg-tamarind-500 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-paper-50 shadow-[0_8px_28px_-10px_rgba(224,122,58,0.6)] transition hover:bg-tamarind-600"
               >
                 {copy.buy.cta}
                 <span className="transition group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="#sample"
-                className="inline-flex items-center justify-center gap-3 border border-ink-900/30 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-ink-900 transition hover:border-brass-500 hover:text-brass-600"
+                className="inline-flex items-center justify-center gap-3 border border-ink-900/30 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-ink-900 transition hover:border-brass-500 hover:text-tamarind-600"
               >
                 Read Chapter One free
               </a>
@@ -81,7 +81,7 @@ export function BuyCard() {
             </div>
 
             <div className="mt-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.22em] text-ink-700">
-              <ShieldCheck size={14} className="text-brass-600" />
+              <ShieldCheck size={14} className="text-tamarind-600" />
               <span>{copy.buy.guarantee}</span>
             </div>
           </motion.div>

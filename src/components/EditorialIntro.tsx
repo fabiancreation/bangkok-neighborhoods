@@ -15,7 +15,7 @@ export function EditorialIntro() {
         >
           <motion.p
             variants={fadeUp}
-            className="font-mono text-[11px] uppercase tracking-[0.28em] text-brass-600"
+            className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600"
           >
             {copy.pitch.eyebrow}
           </motion.p>
@@ -28,18 +28,18 @@ export function EditorialIntro() {
                 style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
               >
                 A city told through the{" "}
-                <span className="italic text-brass-600">neighborhoods</span> that built it.
+                <span className="italic text-tamarind-600">neighborhoods</span> that built it.
               </h2>
             </motion.div>
 
             <motion.div variants={fadeUp} className="md:col-span-7">
-              <p className="font-serif drop-cap text-[18px] leading-[1.8] text-ink-900">
+              <p className="font-serif drop-cap text-[19px] leading-[1.8] text-ink-900">
                 {copy.pitch.paragraphs[0]}
               </p>
-              <p className="font-serif mt-6 text-[18px] leading-[1.8] text-ink-900">
+              <p className="font-serif mt-6 text-[19px] leading-[1.8] text-ink-900">
                 {copy.pitch.paragraphs[1]}
               </p>
-              <p className="font-serif mt-6 text-[18px] leading-[1.8] text-ink-800">
+              <p className="font-serif mt-6 text-[19px] leading-[1.8] text-ink-800">
                 {copy.pitch.paragraphs[2]}
               </p>
             </motion.div>
