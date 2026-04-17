@@ -1,7 +1,7 @@
 "use client";
 import * as Accordion from "@radix-ui/react-accordion";
 import { motion } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus } from "lucide-react";
 import { faq } from "@/content/faq";
 import { fadeUp, stagger } from "@/lib/motion";
 
@@ -17,7 +17,9 @@ export function FAQ() {
           className="grid gap-16 md:grid-cols-12"
         >
           <motion.div variants={fadeUp} className="md:col-span-4">
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">Questions</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
+              Questions
+            </p>
             <hr className="hairline-brass my-6 w-12" />
             <h2
               className="font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
@@ -25,33 +27,68 @@ export function FAQ() {
             >
               The things people ask before they buy.
             </h2>
+            <p className="mt-6 font-serif text-[16px] leading-relaxed text-ink-800">
+              Tap any question. If yours is missing, email{" "}
+              <a className="link-editorial" href="mailto:hello@shape-of-bangkok.com">
+                hello@shape-of-bangkok.com
+              </a>
+              .
+            </p>
           </motion.div>
 
           <motion.div variants={fadeUp} className="md:col-span-8">
-            <Accordion.Root type="single" collapsible className="border-t border-paper-200">
+            <Accordion.Root
+              type="single"
+              collapsible
+              className="flex flex-col gap-3"
+            >
               {faq.map((item, i) => (
                 <Accordion.Item
                   key={i}
                   value={`item-${i}`}
-                  className="border-b border-paper-200 data-[state=open]:bg-paper-50"
+                  className="group/item relative overflow-hidden border border-paper-200 bg-paper-50 transition-all duration-300 data-[state=open]:border-tamarind-500/40 data-[state=open]:bg-paper-50 data-[state=open]:shadow-[0_16px_40px_-20px_rgba(184,130,58,0.35)]"
                 >
-                  <Accordion.Header>
-                    <Accordion.Trigger className="group flex w-full items-center justify-between gap-6 py-6 text-left transition md:py-8">
-                      <span className="font-display text-[1.2rem] leading-snug text-ink-900 md:text-[1.4rem]">
+                  {/* Left accent bar, scales in when open */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute left-0 top-0 h-full w-[4px] origin-top scale-y-0 bg-gradient-to-b from-tamarind-500 via-saffron-500 to-blush-500 transition-transform duration-300 group-data-[state=open]/item:scale-y-100"
+                  />
+
+                  <Accordion.Header className="flex">
+                    <Accordion.Trigger className="group/trigger flex w-full items-center gap-6 px-5 py-6 text-left transition-colors md:px-8 md:py-7">
+                      {/* Index number */}
+                      <span
+                        className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-700 transition-colors group-data-[state=open]/item:text-tamarind-600"
+                        aria-hidden
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+
+                      <span
+                        className="flex-1 font-display text-[1.15rem] leading-snug tracking-[-0.005em] text-ink-900 transition-colors group-data-[state=open]/item:text-ink-950 md:text-[1.35rem]"
+                        style={{ fontVariationSettings: "'opsz' 72" }}
+                      >
                         {item.q}
                       </span>
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-ink-900/30 text-ink-900 transition group-hover:border-brass-500 group-hover:text-tamarind-600 group-data-[state=open]:hidden">
-                        <Plus size={16} />
-                      </span>
-                      <span className="hidden h-8 w-8 shrink-0 items-center justify-center border border-brass-500 text-tamarind-600 group-data-[state=open]:flex">
-                        <Minus size={16} />
+
+                      {/* Plus icon that rotates 45° to become × when open */}
+                      <span
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink-900/20 text-ink-900 transition-all duration-300 group-hover/trigger:border-tamarind-500 group-hover/trigger:text-tamarind-600 group-data-[state=open]/item:rotate-45 group-data-[state=open]/item:border-tamarind-500 group-data-[state=open]/item:bg-tamarind-500 group-data-[state=open]/item:text-paper-50"
+                        aria-hidden
+                      >
+                        <Plus size={16} strokeWidth={2} />
                       </span>
                     </Accordion.Trigger>
                   </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden data-[state=closed]:animate-[collapse_200ms_ease] data-[state=open]:animate-[expand_300ms_ease]">
-                    <p className="font-serif max-w-[60ch] pb-8 pr-12 text-[17px] leading-[1.75] text-ink-800">
-                      {item.a}
-                    </p>
+
+                  <Accordion.Content className="accordion-content overflow-hidden">
+                    <div className="px-5 pb-7 pl-[calc(1.25rem+32px+1.5rem)] pr-5 md:px-8 md:pb-8 md:pl-[calc(2rem+32px+1.5rem)]">
+                      {/* Hairline divider before answer */}
+                      <hr className="mb-6 w-12 border-tamarind-500/60" />
+                      <p className="font-serif max-w-[60ch] text-[16.5px] leading-[1.75] text-ink-800 md:text-[17.5px]">
+                        {item.a}
+                      </p>
+                    </div>
                   </Accordion.Content>
                 </Accordion.Item>
               ))}
