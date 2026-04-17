@@ -354,60 +354,67 @@ function TeaserDialog({
   onOpenChange: (o: boolean) => void;
   neighborhood: Neighborhood | null | undefined;
 }) {
-  if (!neighborhood) {
-    return (
-      <Dialog.Root open={open} onOpenChange={onOpenChange}>
-        <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 z-50 bg-ink-950/75 backdrop-blur-sm" />
-        </Dialog.Portal>
-      </Dialog.Root>
-    );
-  }
-  const accent = partColors[neighborhood.part];
+  const accent = neighborhood ? partColors[neighborhood.part] : partColors.I;
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-ink-950/75 backdrop-blur-sm data-[state=open]:animate-[fadeIn_200ms_ease]" />
+        <Dialog.Overlay
+          className="fixed inset-0 z-[90] bg-ink-950/55 data-[state=open]:animate-[fadeIn_200ms_ease]"
+        />
         <Dialog.Content
-          className="fixed left-1/2 top-1/2 z-50 w-[92vw] max-w-[780px] -translate-x-1/2 -translate-y-1/2 border-t-4 bg-paper-50 p-8 shadow-2xl md:p-12"
+          aria-describedby={undefined}
+          className="fixed left-1/2 top-1/2 z-[100] w-[92vw] max-w-[780px] max-h-[85vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto border-t-4 bg-paper-50 p-8 shadow-[0_40px_80px_-20px_rgba(28,20,14,0.5)] focus:outline-none md:p-12"
           style={{ borderTopColor: accent.main }}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div>
-              <p className="font-mono text-[11px] uppercase tracking-[0.28em]" style={{ color: accent.main }}>
-                Chapter {String(neighborhood.number).padStart(2, "0")} · Part {neighborhood.part} ·{" "}
-                {neighborhood.tier}
-              </p>
-              <hr className="my-4 w-10 border-t-2" style={{ borderColor: accent.main }} />
-              <Dialog.Title
-                className="font-display text-[2rem] leading-tight tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
-                style={{ fontVariationSettings: "'opsz' 144" }}
-              >
-                {neighborhood.name}
-              </Dialog.Title>
-            </div>
-            <Dialog.Close className="flex h-10 w-10 items-center justify-center border border-ink-900/20 text-ink-900 transition hover:border-tamarind-500 hover:text-tamarind-600">
-              <X size={18} />
-            </Dialog.Close>
-          </div>
-          <Dialog.Description className="sr-only">Chapter opening for {neighborhood.name}</Dialog.Description>
+          {neighborhood ? (
+            <>
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p
+                    className="font-mono text-[11px] uppercase tracking-[0.28em]"
+                    style={{ color: accent.main }}
+                  >
+                    Chapter {String(neighborhood.number).padStart(2, "0")} · Part {neighborhood.part} ·{" "}
+                    {neighborhood.tier}
+                  </p>
+                  <hr className="my-4 w-10 border-t-2" style={{ borderColor: accent.main }} />
+                  <Dialog.Title
+                    className="font-display text-[2rem] leading-tight tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
+                    style={{ fontVariationSettings: "'opsz' 144" }}
+                  >
+                    {neighborhood.name}
+                  </Dialog.Title>
+                </div>
+                <Dialog.Close
+                  aria-label="Close"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center border border-ink-900/20 text-ink-900 transition hover:border-tamarind-500 hover:text-tamarind-600"
+                >
+                  <X size={18} />
+                </Dialog.Close>
+              </div>
 
-          <div className="mt-8 border-l-2 pl-6" style={{ borderColor: accent.main }}>
-            <p className="font-serif text-[18px] leading-[1.8] text-ink-900">{neighborhood.teaser}</p>
-          </div>
+              <div className="mt-8 border-l-2 pl-6" style={{ borderColor: accent.main }}>
+                <p className="font-serif text-[18px] leading-[1.8] text-ink-900">
+                  {neighborhood.teaser}
+                </p>
+              </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-paper-200 pt-6">
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-700">
-              {neighborhood.words.toLocaleString()} words · full chapter in the book
-            </span>
-            <a
-              href="#buy"
-              onClick={() => onOpenChange(false)}
-              className="inline-flex items-center gap-2 bg-tamarind-500 px-5 py-3 font-sans text-[11px] uppercase tracking-[0.2em] text-paper-50 transition hover:bg-tamarind-600"
-            >
-              Read the book →
-            </a>
-          </div>
+              <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-paper-200 pt-6">
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-700">
+                  {neighborhood.words.toLocaleString()} words · full chapter in the book
+                </span>
+                <a
+                  href="#buy"
+                  onClick={() => onOpenChange(false)}
+                  className="inline-flex items-center gap-2 bg-tamarind-500 px-5 py-3 font-sans text-[11px] uppercase tracking-[0.2em] text-paper-50 transition hover:bg-tamarind-600"
+                >
+                  Read the book →
+                </a>
+              </div>
+            </>
+          ) : (
+            <Dialog.Title className="sr-only">Chapter teaser</Dialog.Title>
+          )}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
