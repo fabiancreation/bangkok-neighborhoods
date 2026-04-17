@@ -93,12 +93,12 @@ export function HeroCrossing() {
       {/* Top bar spacer */}
       <div className="h-16" />
 
-      <div className="relative mx-auto w-full max-w-[1400px] px-6 pb-24 pt-8 md:px-10 md:pb-32 md:pt-12">
+      <div className="relative mx-auto w-full max-w-[1400px] px-5 pb-16 pt-6 sm:px-6 sm:pb-20 md:px-10 md:pb-28 md:pt-10">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="font-mono text-[11px] uppercase tracking-[0.32em] text-brass-700"
+          className="font-mono text-[10px] uppercase tracking-[0.32em] text-brass-700 sm:text-[11px]"
         >
           {copy.hero.kicker}
         </motion.p>
@@ -107,7 +107,7 @@ export function HeroCrossing() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.4, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="font-display mt-6 max-w-[15ch] text-[14vw] leading-[0.9] tracking-[-0.03em] text-ink-950 md:text-[9vw] lg:text-[8rem]"
+          className="font-display mt-5 max-w-[15ch] text-[clamp(3rem,13vw,8rem)] leading-[0.92] tracking-[-0.03em] text-ink-950 sm:mt-6"
           style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 50" }}
         >
           The Shape
@@ -124,7 +124,7 @@ export function HeroCrossing() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
-          className="font-serif mt-8 max-w-[40ch] text-lg leading-relaxed text-ink-800 md:text-xl"
+          className="font-serif mt-6 max-w-[40ch] text-[17px] leading-relaxed text-ink-800 sm:mt-8 sm:text-lg md:text-xl"
         >
           {copy.hero.deck}
         </motion.p>
@@ -133,9 +133,9 @@ export function HeroCrossing() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1 }}
-          className="mt-10 max-w-[42ch] border-l-2 border-tamarind-500 pl-5"
+          className="mt-8 max-w-[42ch] border-l-2 border-tamarind-500 pl-4 sm:mt-10 sm:pl-5"
         >
-          <p className="font-display italic text-xl leading-snug text-ink-900 md:text-2xl">
+          <p className="font-display italic text-lg leading-snug text-ink-900 sm:text-xl md:text-2xl">
             “{copy.hero.grabber}”
           </p>
           <footer className="mt-2 font-mono text-[10px] uppercase tracking-[0.28em] text-brass-700">
@@ -147,12 +147,12 @@ export function HeroCrossing() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 1.3 }}
-          className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center"
+          className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4"
         >
           <a
             href={buildCheckoutUrl()}
             onClick={() => trackEvent("buy_click", { location: "hero" })}
-            className="group inline-flex items-center justify-center gap-3 bg-ink-950 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-paper-50 shadow-[0_6px_28px_-8px_rgba(28,20,14,0.45)] transition hover:bg-tamarind-600"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 bg-ink-950 px-6 py-4 font-sans text-[12px] uppercase tracking-[0.2em] text-paper-50 shadow-[0_6px_28px_-8px_rgba(28,20,14,0.45)] transition hover:bg-tamarind-600 sm:px-7 sm:text-[13px]"
           >
             {copy.hero.primaryCta}
             <span aria-hidden className="translate-y-[1px] transition group-hover:translate-x-1">→</span>
@@ -160,17 +160,17 @@ export function HeroCrossing() {
           <a
             href="#sample"
             onClick={() => trackEvent("chapter_one_request", { location: "hero" })}
-            className="group inline-flex items-center justify-center gap-3 border border-ink-900/30 bg-paper-50/60 px-7 py-4 font-sans text-[13px] uppercase tracking-[0.2em] text-ink-900 backdrop-blur-sm transition hover:border-ink-900 hover:bg-paper-50"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 border border-ink-900/30 bg-paper-50/60 px-6 py-4 font-sans text-[12px] uppercase tracking-[0.2em] text-ink-900 backdrop-blur-sm transition hover:border-ink-900 hover:bg-paper-50 sm:px-7 sm:text-[13px]"
           >
             {copy.hero.secondaryCta}
           </a>
         </motion.div>
 
-        <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-800/80">
+        <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-800/80 sm:mt-16 sm:gap-x-6">
           <span>19 chapters</span>
-          <span className="h-px w-8 bg-ink-900/30" />
+          <span className="h-px w-6 bg-ink-900/30 sm:w-8" />
           <span>65,200 words</span>
-          <span className="h-px w-8 bg-ink-900/30" />
+          <span className="h-px w-6 bg-ink-900/30 sm:w-8" />
           <span>EPUB + Kindle</span>
         </div>
       </div>

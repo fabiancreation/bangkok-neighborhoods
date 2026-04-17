@@ -14,7 +14,7 @@ const volumes = [
 export function SeriesContext() {
   return (
     <section className="relative bg-paper-100 paper-grain">
-      <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-36">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -27,7 +27,7 @@ export function SeriesContext() {
           <motion.hr variants={fadeUp} className="hairline-brass my-6 w-12" />
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[2.4rem] leading-tight tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
+            className="font-display text-[1.9rem] leading-tight tracking-[-0.02em] text-ink-950 sm:text-[2.4rem] md:text-[2.8rem]"
             style={{ fontVariationSettings: "'opsz' 144" }}
           >
             {copy.series_context.title}
@@ -36,7 +36,7 @@ export function SeriesContext() {
             {copy.series_context.description}
           </motion.p>
 
-          <motion.div variants={fadeUp} className="mt-14 grid gap-[2px] bg-paper-200 md:grid-cols-4">
+          <motion.div variants={fadeUp} className="mt-10 grid grid-cols-2 gap-[2px] bg-paper-200 sm:mt-14 md:grid-cols-4">
             {volumes.map((v) => (
               <div
                 key={v.roman}

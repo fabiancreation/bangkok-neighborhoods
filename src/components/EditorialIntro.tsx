@@ -6,7 +6,7 @@ import { copy } from "@/content/copy";
 export function EditorialIntro() {
   return (
     <section className="relative bg-paper-50 paper-grain">
-      <div className="mx-auto max-w-[1200px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -21,10 +21,10 @@ export function EditorialIntro() {
           </motion.p>
           <motion.hr variants={fadeUp} className="hairline-brass my-6 w-12" />
 
-          <div className="grid gap-12 md:grid-cols-12">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-12">
             <motion.div variants={fadeUp} className="md:col-span-5">
               <h2
-                className="font-display text-[2.6rem] leading-[1.02] tracking-[-0.02em] text-ink-950 md:text-[3.2rem]"
+                className="font-display text-[2rem] leading-[1.03] tracking-[-0.02em] text-ink-950 sm:text-[2.6rem] md:text-[3.2rem]"
                 style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
               >
                 A city told through the{" "}

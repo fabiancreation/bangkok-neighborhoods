@@ -42,13 +42,13 @@ export function SampleChapterGate() {
             "radial-gradient(900px 500px at 85% 15%, rgba(245,198,90,0.25), transparent 60%), radial-gradient(700px 500px at 10% 85%, rgba(224,122,58,0.22), transparent 65%), linear-gradient(180deg, #2a201a 0%, #1c140e 100%)",
         }}
       />
-      <div className="mx-auto max-w-[1200px] px-6 py-28 md:px-10 md:py-36">
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-36">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger(0.1)}
-          className="grid gap-16 md:grid-cols-12"
+          className="grid gap-10 sm:gap-14 md:grid-cols-12 md:gap-16"
         >
           <motion.div variants={fadeUp} className="md:col-span-5">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-saffron-400">
@@ -56,7 +56,7 @@ export function SampleChapterGate() {
             </p>
             <hr className="my-6 w-12 border-saffron-400/70" />
             <h2
-              className="font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-paper-50 md:text-[3rem]"
+              className="font-display text-[1.9rem] leading-[1.05] tracking-[-0.02em] text-paper-50 sm:text-[2.4rem] md:text-[3rem]"
               style={{ fontVariationSettings: "'opsz' 144" }}
             >
               {copy.sample.title}
@@ -96,7 +96,7 @@ export function SampleChapterGate() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="inline-flex w-full items-center justify-center gap-3 bg-tamarind-500 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-paper-50 shadow-[0_6px_24px_-8px_rgba(224,122,58,0.6)] transition hover:bg-tamarind-600 disabled:opacity-60 sm:w-auto"
+                  className="inline-flex min-h-[56px] w-full items-center justify-center gap-3 bg-tamarind-500 px-6 py-4 font-sans text-[12px] uppercase tracking-[0.22em] text-paper-50 shadow-[0_6px_24px_-8px_rgba(224,122,58,0.6)] transition hover:bg-tamarind-600 disabled:opacity-60 sm:w-auto sm:px-8 sm:py-5 sm:text-[13px]"
                 >
                   {status === "submitting" ? "Sending" : copy.sample.cta}
                   <span>→</span>

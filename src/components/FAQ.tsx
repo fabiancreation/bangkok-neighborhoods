@@ -8,13 +8,13 @@ import { fadeUp, stagger } from "@/lib/motion";
 export function FAQ() {
   return (
     <section id="faq" className="relative bg-paper-100 paper-grain">
-      <div className="mx-auto max-w-[1200px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger(0.1)}
-          className="grid gap-16 md:grid-cols-12"
+          className="grid gap-10 sm:gap-14 md:grid-cols-12 md:gap-16"
         >
           <motion.div variants={fadeUp} className="md:col-span-4">
             <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
@@ -22,7 +22,7 @@ export function FAQ() {
             </p>
             <hr className="hairline-brass my-6 w-12" />
             <h2
-              className="font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-ink-950 md:text-[2.8rem]"
+              className="font-display text-[1.9rem] leading-[1.05] tracking-[-0.02em] text-ink-950 sm:text-[2.4rem] md:text-[2.8rem]"
               style={{ fontVariationSettings: "'opsz' 144" }}
             >
               The things people ask before they buy.
@@ -55,7 +55,7 @@ export function FAQ() {
                   />
 
                   <Accordion.Header className="flex">
-                    <Accordion.Trigger className="group/trigger flex w-full items-center gap-6 px-5 py-6 text-left transition-colors md:px-8 md:py-7">
+                    <Accordion.Trigger className="group/trigger flex w-full items-center gap-4 px-4 py-5 text-left transition-colors sm:gap-6 sm:px-5 sm:py-6 md:px-8 md:py-7">
                       {/* Index number */}
                       <span
                         className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-700 transition-colors group-data-[state=open]/item:text-tamarind-600"
@@ -65,7 +65,7 @@ export function FAQ() {
                       </span>
 
                       <span
-                        className="flex-1 font-display text-[1.15rem] leading-snug tracking-[-0.005em] text-ink-900 transition-colors group-data-[state=open]/item:text-ink-950 md:text-[1.35rem]"
+                        className="flex-1 font-display text-[1.02rem] leading-snug tracking-[-0.005em] text-ink-900 transition-colors group-data-[state=open]/item:text-ink-950 sm:text-[1.15rem] md:text-[1.35rem]"
                         style={{ fontVariationSettings: "'opsz' 72" }}
                       >
                         {item.q}
@@ -82,7 +82,7 @@ export function FAQ() {
                   </Accordion.Header>
 
                   <Accordion.Content className="accordion-content overflow-hidden">
-                    <div className="px-5 pb-7 pl-[calc(1.25rem+32px+1.5rem)] pr-5 md:px-8 md:pb-8 md:pl-[calc(2rem+32px+1.5rem)]">
+                    <div className="px-4 pb-6 pl-[calc(1rem+32px+1rem)] pr-4 sm:px-5 sm:pb-7 sm:pl-[calc(1.25rem+32px+1.5rem)] md:px-8 md:pb-8 md:pl-[calc(2rem+32px+1.5rem)]">
                       {/* Hairline divider before answer */}
                       <hr className="mb-6 w-12 border-tamarind-500/60" />
                       <p className="font-serif max-w-[60ch] text-[16.5px] leading-[1.75] text-ink-800 md:text-[17.5px]">

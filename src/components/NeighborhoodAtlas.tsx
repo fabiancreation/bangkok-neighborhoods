@@ -38,31 +38,31 @@ export function NeighborhoodAtlas() {
 
   return (
     <section id="atlas" className="relative bg-paper-50 paper-grain">
-      <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger(0.12)}
-          className="mb-20 max-w-[62ch]"
+          className="mb-14 max-w-[62ch] sm:mb-20"
         >
           <motion.p variants={fadeUp} className="font-mono text-[11px] uppercase tracking-[0.28em] text-tamarind-600">
             {copy.atlas.eyebrow}
           </motion.p>
-          <motion.hr variants={fadeUp} className="my-6 w-12 border-tamarind-500/70" />
+          <motion.hr variants={fadeUp} className="my-5 w-12 border-tamarind-500/70 sm:my-6" />
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[2.6rem] leading-[1.04] tracking-[-0.02em] text-ink-950 md:text-[3.4rem]"
+            className="font-display text-[2rem] leading-[1.05] tracking-[-0.02em] text-ink-950 sm:text-[2.6rem] md:text-[3.4rem]"
             style={{ fontVariationSettings: "'opsz' 144" }}
           >
             {copy.atlas.title}
           </motion.h2>
-          <motion.p variants={fadeUp} className="mt-6 font-serif text-[17px] leading-relaxed text-ink-800">
+          <motion.p variants={fadeUp} className="mt-5 font-serif text-[16px] leading-relaxed text-ink-800 sm:mt-6 sm:text-[17px]">
             {copy.atlas.description}
           </motion.p>
         </motion.div>
 
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-20">
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-20">
           {/* MAP — sticky on desktop, paper background */}
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-24">
@@ -91,10 +91,10 @@ export function NeighborhoodAtlas() {
           {/* LIST — grouped by part */}
           <div className="lg:col-span-7">
             {(Object.keys(grouped) as Part[]).map((p) => (
-              <div key={p} className="mb-16 last:mb-0">
-                <div className="mb-8 flex items-baseline gap-4">
+              <div key={p} className="mb-12 last:mb-0 sm:mb-16">
+                <div className="mb-6 flex items-baseline gap-4 sm:mb-8">
                   <span
-                    className="font-display text-[2.4rem] leading-none tracking-[-0.02em]"
+                    className="font-display text-[2rem] leading-none tracking-[-0.02em] sm:text-[2.4rem]"
                     style={{ color: partColors[p].main, fontVariationSettings: "'opsz' 144" }}
                   >
                     {p}.
@@ -103,7 +103,7 @@ export function NeighborhoodAtlas() {
                     <div className="font-mono text-[10px] uppercase tracking-[0.24em] text-ink-700">
                       Part {p}
                     </div>
-                    <div className="font-display text-[1.3rem] leading-tight tracking-[-0.01em] text-ink-950">
+                    <div className="font-display text-[1.15rem] leading-tight tracking-[-0.01em] text-ink-950 sm:text-[1.3rem]">
                       {parts[p].title}
                     </div>
                   </div>
@@ -127,10 +127,10 @@ export function NeighborhoodAtlas() {
                     >
                       <button
                         onClick={() => openTeaser(n.number)}
-                        className="flex w-full items-start gap-5 py-5 pl-5 pr-4 text-left md:gap-7 md:py-6 md:pl-7 md:pr-6"
+                        className="flex w-full items-start gap-4 py-4 pl-4 pr-3 text-left sm:gap-5 sm:py-5 sm:pl-5 sm:pr-4 md:gap-7 md:py-6 md:pl-7 md:pr-6"
                       >
                         <span
-                          className="font-display text-[2.2rem] leading-none tracking-[-0.03em] md:text-[2.8rem]"
+                          className="font-display text-[1.75rem] leading-none tracking-[-0.03em] sm:text-[2.2rem] md:text-[2.8rem]"
                           style={{
                             color: hovered === n.number ? partColors[p].main : "#946525",
                             fontVariationSettings: "'opsz' 144",
@@ -138,19 +138,19 @@ export function NeighborhoodAtlas() {
                         >
                           {String(n.number).padStart(2, "0")}
                         </span>
-                        <div className="flex-1 pt-1">
-                          <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
+                        <div className="flex-1 pt-0.5 sm:pt-1">
+                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 sm:gap-x-4">
                             <h3
-                              className="font-display text-[1.6rem] leading-tight tracking-[-0.01em] text-ink-950 md:text-[1.9rem]"
+                              className="font-display text-[1.3rem] leading-tight tracking-[-0.01em] text-ink-950 sm:text-[1.6rem] md:text-[1.9rem]"
                               style={{ fontVariationSettings: "'opsz' 96" }}
                             >
                               {n.name}
                             </h3>
-                            <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-700">
+                            <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-ink-700 sm:text-[10px]">
                               {n.tier} · {n.words.toLocaleString()}w
                             </span>
                           </div>
-                          <p className="mt-3 font-serif text-[16.5px] leading-[1.65] text-ink-800 md:text-[17px]">
+                          <p className="mt-2 font-serif text-[15px] leading-[1.6] text-ink-800 sm:mt-3 sm:text-[16.5px] md:text-[17px]">
                             {n.tagline}
                           </p>
                         </div>

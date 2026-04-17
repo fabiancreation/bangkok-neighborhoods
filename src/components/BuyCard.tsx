@@ -10,20 +10,20 @@ import { BookCover3D } from "./BookCover3D";
 export function BuyCard() {
   return (
     <section id="buy" className="relative bg-paper-50 paper-grain">
-      <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={stagger(0.12)}
-          className="relative grid items-center gap-16 border border-tamarind-500/30 bg-gradient-to-br from-paper-100 via-paper-50 to-saffron-400/20 p-8 shadow-[0_40px_80px_-30px_rgba(184,130,58,0.35)] md:grid-cols-12 md:p-16"
+          className="relative grid items-center gap-10 border border-tamarind-500/30 bg-gradient-to-br from-paper-100 via-paper-50 to-saffron-400/20 p-6 shadow-[0_40px_80px_-30px_rgba(184,130,58,0.35)] sm:gap-12 sm:p-10 md:grid-cols-12 md:gap-16 md:p-16"
         >
           {/* Cover */}
           <motion.div
             variants={fadeUp}
-            className="md:col-span-5 flex justify-center md:justify-start"
+            className="flex justify-center md:col-span-5 md:justify-start"
           >
-            <BookCover3D size="lg" />
+            <BookCover3D size="lg" className="max-w-full" />
           </motion.div>
 
           {/* Details */}
@@ -33,44 +33,44 @@ export function BuyCard() {
             </p>
             <hr className="hairline-brass my-6 w-12" />
             <h2
-              className="font-display text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-ink-950 md:text-[3rem]"
+              className="font-display text-[1.9rem] leading-[1.05] tracking-[-0.02em] text-ink-950 sm:text-[2.4rem] md:text-[3rem]"
               style={{ fontVariationSettings: "'opsz' 144" }}
             >
               {copy.buy.title}
             </h2>
-            <div className="mt-8 flex items-baseline gap-4">
+            <div className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-2 sm:mt-8">
               <span
-                className="font-display text-[4.5rem] leading-none tracking-[-0.04em] text-tamarind-600"
+                className="font-display text-[3.4rem] leading-none tracking-[-0.04em] text-tamarind-600 sm:text-[4.5rem]"
                 style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 40" }}
               >
                 {copy.buy.price}
               </span>
-              <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-ink-700">
+              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-700 sm:text-[11px]">
                 USD · one-time · instant delivery
               </span>
             </div>
 
-            <ul className="mt-10 space-y-4">
+            <ul className="mt-8 space-y-3 sm:mt-10 sm:space-y-4">
               {copy.buy.includes.map((item, i) => (
-                <li key={i} className="flex items-start gap-3 font-serif text-[16px] leading-relaxed text-ink-900">
+                <li key={i} className="flex items-start gap-3 font-serif text-[15px] leading-relaxed text-ink-900 sm:text-[16px]">
                   <Check className="mt-[6px] shrink-0 text-tamarind-600" size={16} strokeWidth={2.5} />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-12 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <div className="mt-10 flex flex-col gap-3 sm:mt-12 sm:flex-row sm:items-center sm:gap-4">
               <a
                 href={buildCheckoutUrl()}
                 onClick={() => trackEvent("buy_click", { location: "buy_card" })}
-                className="group inline-flex items-center justify-center gap-3 bg-tamarind-500 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-paper-50 shadow-[0_8px_28px_-10px_rgba(224,122,58,0.6)] transition hover:bg-tamarind-600"
+                className="group inline-flex min-h-[56px] items-center justify-center gap-3 bg-tamarind-500 px-6 py-4 font-sans text-[12px] uppercase tracking-[0.22em] text-paper-50 shadow-[0_8px_28px_-10px_rgba(224,122,58,0.6)] transition hover:bg-tamarind-600 sm:px-8 sm:py-5 sm:text-[13px]"
               >
                 {copy.buy.cta}
                 <span className="transition group-hover:translate-x-1">→</span>
               </a>
               <a
                 href="#sample"
-                className="inline-flex items-center justify-center gap-3 border border-ink-900/30 px-8 py-5 font-sans text-[13px] uppercase tracking-[0.22em] text-ink-900 transition hover:border-brass-500 hover:text-tamarind-600"
+                className="inline-flex min-h-[56px] items-center justify-center gap-3 border border-ink-900/30 px-6 py-4 font-sans text-[12px] uppercase tracking-[0.22em] text-ink-900 transition hover:border-tamarind-500 hover:text-tamarind-600 sm:px-8 sm:py-5 sm:text-[13px]"
               >
                 Read Chapter One free
               </a>

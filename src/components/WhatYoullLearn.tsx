@@ -6,7 +6,7 @@ import { copy } from "@/content/copy";
 export function WhatYoullLearn() {
   return (
     <section className="relative bg-paper-50 paper-grain">
-      <div className="mx-auto max-w-[1200px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1200px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -19,13 +19,13 @@ export function WhatYoullLearn() {
           <motion.hr variants={fadeUp} className="hairline-brass my-6 w-12" />
           <motion.h2
             variants={fadeUp}
-            className="font-display max-w-[18ch] text-[2.4rem] leading-[1.05] tracking-[-0.02em] text-ink-950 md:text-[3rem]"
+            className="font-display max-w-[18ch] text-[1.9rem] leading-[1.05] tracking-[-0.02em] text-ink-950 sm:text-[2.4rem] md:text-[3rem]"
             style={{ fontVariationSettings: "'opsz' 144" }}
           >
             Eight things the book leaves you with.
           </motion.h2>
 
-          <motion.ol variants={fadeUp} className="mt-16 grid gap-[1px] bg-paper-200">
+          <motion.ol variants={fadeUp} className="mt-10 grid gap-[1px] bg-paper-200 sm:mt-16">
             {copy.learn.items.map((item, i) => {
               const accentColors = [
                 "text-tamarind-600",
@@ -41,16 +41,16 @@ export function WhatYoullLearn() {
                 <motion.li
                   key={i}
                   variants={fadeUp}
-                  className="group flex items-baseline gap-6 bg-paper-50 px-4 py-7 transition hover:bg-paper-100 md:px-6 md:py-9"
+                  className="group flex items-baseline gap-4 bg-paper-50 px-4 py-5 transition hover:bg-paper-100 sm:gap-6 sm:py-7 md:px-6 md:py-9"
                 >
                   <span
-                    className={`font-display text-[2rem] leading-none tracking-[-0.03em] md:text-[2.4rem] ${accentColors[i % accentColors.length]}`}
+                    className={`shrink-0 font-display text-[1.6rem] leading-none tracking-[-0.03em] sm:text-[2rem] md:text-[2.4rem] ${accentColors[i % accentColors.length]}`}
                     aria-hidden
                     style={{ fontVariationSettings: "'opsz' 144" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-display text-[1.35rem] leading-snug tracking-[-0.01em] text-ink-900 md:text-[1.6rem]">
+                  <span className="font-display text-[1.1rem] leading-snug tracking-[-0.01em] text-ink-900 sm:text-[1.35rem] md:text-[1.6rem]">
                     {item}
                   </span>
                 </motion.li>

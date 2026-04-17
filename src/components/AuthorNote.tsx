@@ -6,15 +6,15 @@ import { copy } from "@/content/copy";
 export function AuthorNote() {
   return (
     <section id="author" className="relative bg-paper-50 paper-grain">
-      <div className="mx-auto max-w-[1400px] px-6 py-32 md:px-10 md:py-40">
+      <div className="mx-auto max-w-[1400px] px-5 py-20 sm:px-6 sm:py-28 md:px-10 md:py-40">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
           variants={stagger(0.15)}
-          className="grid gap-16 md:grid-cols-12"
+          className="grid gap-10 sm:gap-14 md:grid-cols-12 md:gap-16"
         >
-          <motion.div variants={fadeUp} className="md:col-span-5">
+          <motion.div variants={fadeUp} className="max-w-[380px] md:col-span-5 md:max-w-none">
             {/* Portrait placeholder with warm tamarind/saffron wash */}
             <div className="relative aspect-[4/5] overflow-hidden bg-paper-100">
               <svg viewBox="0 0 400 500" className="absolute inset-0 h-full w-full">
@@ -45,12 +45,12 @@ export function AuthorNote() {
             </p>
             <hr className="my-6 w-12 border-tamarind-500/70" />
             <h2
-              className="font-display text-[2.4rem] leading-[1.04] tracking-[-0.02em] text-ink-950 md:text-[3rem]"
+              className="font-display text-[1.9rem] leading-[1.05] tracking-[-0.02em] text-ink-950 sm:text-[2.4rem] md:text-[3rem]"
               style={{ fontVariationSettings: "'opsz' 144" }}
             >
               {copy.author.title}
             </h2>
-            <div className="mt-10 space-y-6 font-serif text-[18px] leading-[1.8] text-ink-800">
+            <div className="mt-8 space-y-5 font-serif text-[16.5px] leading-[1.75] text-ink-800 sm:mt-10 sm:space-y-6 sm:text-[18px] sm:leading-[1.8]">
               <p>{copy.author.paragraphs[0]}</p>
               <p>{copy.author.paragraphs[1]}</p>
             </div>
