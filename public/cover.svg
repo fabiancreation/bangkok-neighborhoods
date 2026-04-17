@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 2400" role="img" aria-label="The Shape of Bangkok — book cover">
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.04  0 0 0 0 0.04  0 0 0 0 0.03  0 0 0 0.35 0"/>
+      <feComposite in2="SourceGraphic" operator="in"/>
+    </filter>
+    <linearGradient id="vignette" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#000" stop-opacity="0.08"/>
+      <stop offset="50%" stop-color="#000" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#000" stop-opacity="0.14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Paper background -->
+  <rect width="1600" height="2400" fill="#f6f1e7"/>
+  <rect width="1600" height="2400" fill="url(#vignette)"/>
+  <rect width="1600" height="2400" filter="url(#grain)"/>
+
+  <!-- Series mark top-right -->
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#8f6533" letter-spacing="10">
+    <text x="1460" y="200" text-anchor="end" font-size="28" font-weight="600">UNDERSTANDING THAI CULTURE</text>
+    <text x="1460" y="240" text-anchor="end" font-size="22">VOL · II</text>
+  </g>
+
+  <!-- Series mark left -->
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#8f6533" letter-spacing="6">
+    <text x="140" y="200" font-size="24">A BOOK BY FABIAN ARNDT</text>
+  </g>
+
+  <!-- River curve (brass hairline, small, evocative) -->
+  <g transform="translate(140, 1030)" fill="none" stroke="#b8864b" stroke-width="3" opacity="0.85">
+    <path d="M 0 0 Q 120 60 240 20 Q 360 -20 500 60 Q 620 120 740 80"/>
+    <circle cx="500" cy="60" r="8" fill="#b8864b" stroke="none"/>
+  </g>
+
+  <!-- Title -->
+  <g font-family="'Fraunces', Georgia, serif" fill="#0c0a08">
+    <text x="140" y="940" font-size="260" font-weight="500" letter-spacing="-10">The Shape</text>
+    <text x="140" y="990" font-size="40" font-weight="400" fill="#8f6533" letter-spacing="4"></text>
+    <text x="140" y="1000" font-size="260" font-weight="500" font-style="italic" fill="#8f6533" letter-spacing="-10">of Bangkok.</text>
+  </g>
+
+  <!-- Hairline divider -->
+  <line x1="140" y1="1200" x2="420" y2="1200" stroke="#b8864b" stroke-width="2" opacity="0.7"/>
+
+  <!-- Subtitle -->
+  <g font-family="'Source Serif 4', Georgia, serif" fill="#231f1b">
+    <text x="140" y="1280" font-size="48" font-style="italic" font-weight="400">History and culture,</text>
+    <text x="140" y="1340" font-size="48" font-style="italic" font-weight="400">explained through</text>
+    <text x="140" y="1400" font-size="48" font-style="italic" font-weight="400">nineteen neighborhoods.</text>
+  </g>
+
+  <!-- Chapter index at bottom (typographic detail) -->
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#3a332d" letter-spacing="3" font-size="18">
+    <text x="140" y="2100">01  THONBURI</text>
+    <text x="140" y="2135">02  RATTANAKOSIN</text>
+    <text x="140" y="2170">…</text>
+    <text x="140" y="2205">18  BANG KRACHAO</text>
+    <text x="140" y="2240">19  NONTHABURI</text>
+  </g>
+
+  <!-- Bottom bar + author name -->
+  <line x1="140" y1="2290" x2="1460" y2="2290" stroke="#b8864b" stroke-width="1.5" opacity="0.7"/>
+  <g font-family="'IBM Plex Sans', ui-sans-serif, sans-serif" fill="#0c0a08" letter-spacing="14">
+    <text x="140" y="2340" font-size="28" font-weight="600">FABIAN  ARNDT</text>
+  </g>
+  <g font-family="'IBM Plex Mono', ui-monospace, monospace" fill="#8f6533" letter-spacing="4">
+    <text x="1460" y="2340" text-anchor="end" font-size="18">SHAPE-OF-BANGKOK · 2026</text>
+  </g>
+</svg>
